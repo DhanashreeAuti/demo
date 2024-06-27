@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container{
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2{
+            text-align: center;
+        }
+        form{
+            display: grid;
+            gap: 10px;
+        }
+        input, select, textarea{
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        select{
+            width: 95%;
+        }
+        input[type="submit"]{
+            width: 50%;
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover{
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login Form</h2>
+        <form id="LoginForm">
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <span id="emailError" class="error"></span>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <span id="passwordError" class="error"></span>
+            <div class="password-strength" id="passwordStrength"></div>
+
+            <span style="text-align: center;">
+                <input type="submit" value="submit">
+            </span>
+
+        </form>
+    </div>
+
+    <script>
+
+        document.getElementById("LoginForm").addEventListener("submit",function(event){
+            var em=document.getElementById("email").value;
+            var pwd=document.getElementById("password").value;
+            if(email=""){alert("Enter Email!");}
+            else{
+                if(em==(localStorage.getItem("email"))){
+                    if(pwd===""){alert("Enter Password!");}
+                    else{
+                        if(pwd===(localStorage.getItem("password"))){
+                            //window.location.href="/Welcome.html";
+                            window.open("Welcome.html");
+                        }
+                        else{
+                            alert("Wrong Password!");
+                        }
+                    }
+                }
+                else{
+                    alert("Invalid ID!");
+                }
+            }
+            }
+        );
+
+    </script>
+</body>
+</html>
